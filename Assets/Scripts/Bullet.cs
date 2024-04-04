@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 10;
     public float lifetime = 3;
+    public int damage = 10;
 
     void Start()
     {
@@ -17,6 +18,13 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+        var enemy = collision.gameObject.GetComponent<Health>();
+        if(enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
+
         Destroy(gameObject);
     }
 }
