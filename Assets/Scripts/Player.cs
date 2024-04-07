@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     [Header("UI")]
     public Transform healthBar;
 
+    [Header("VFX")]
+    public GameObject dustVFX;
+
     private Rigidbody rb;
     private AudioSource audioSource; // Reference to the AudioSource component
     private Vector3 input = Vector3.zero; // Initialized as zero vector
@@ -56,15 +59,23 @@ public class Player : MonoBehaviour
         // Checking if the player is moving or not
         if (input != Vector3.zero)
         {
+            transform.forward = input;
+
+            if (!dustVFX.activeSelf)
+                dustVFX.SetActive(true);
+
             isMoving = true;
             transform.forward = input;
         }
         else
         {
+            if (!dustVFX.activeSelf)
+                dustVFX.SetActive(false);
+
             isMoving = false;
         }
 
-        // Playing sound based on whether the player is moving or standing still
+
         if (isMoving && !audioSource.isPlaying)
         {
             audioSource.clip = movingSound;

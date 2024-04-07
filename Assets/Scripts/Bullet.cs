@@ -10,6 +10,9 @@ public class Bullet : MonoBehaviour
     public float lifetime = 3;
     public int damage = 10;
 
+    [Header("VFX")]
+    public GameObject explosionVFX;
+
     void Start()
     {
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
@@ -18,6 +21,8 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+        Instantiate(explosionVFX, transform.position, Quaternion.identity);
 
         var enemy = collision.gameObject.GetComponent<Health>();
         if(enemy != null)
