@@ -30,6 +30,11 @@ public class Bullet : MonoBehaviour
             enemy.TakeDamage(damage);
         }
 
-        Destroy(gameObject);
+        var destructable = collision.gameObject.GetComponent<Destructable>();
+
+        if (enemy != null)
+        {
+            Destroy(gameObject);
+        }
     }
 }
