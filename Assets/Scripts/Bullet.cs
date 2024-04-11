@@ -22,8 +22,6 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        Instantiate(explosionVFX, transform.position, Quaternion.identity);
-
         var enemy = collision.gameObject.GetComponent<Health>();
         if(enemy != null)
         {
@@ -32,9 +30,17 @@ public class Bullet : MonoBehaviour
 
         var destructable = collision.gameObject.GetComponent<Destructable>();
 
-        if (enemy != null)
+        if (destructable != null)
         {
-            Destroy(gameObject);
+            destructable.Destroy();
         }
+
+        Collide();
+    }
+
+    public virtual void Collide()
+    {
+        Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

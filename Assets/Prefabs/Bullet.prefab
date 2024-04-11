@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6982935948689730626}
   - component: {fileID: 470944989418368640}
   - component: {fileID: 2430704071503308528}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,8 @@ GameObject:
   - component: {fileID: 2508764073354401750}
   - component: {fileID: 5165702688809706686}
   - component: {fileID: -4814034231036233075}
-  m_Layer: 0
+  - component: {fileID: 1437447543825449100}
+  m_Layer: 4
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,3 +165,16 @@ MonoBehaviour:
   lifetime: 2
   damage: 10
   explosionVFX: {fileID: 4797687148288786139, guid: 8db6cdf1b2ecff441a67fe3ba2eb06ab, type: 3}
+--- !u!135 &1437447543825449100
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6124923582851725058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
